@@ -1,7 +1,7 @@
 @extends ("layout")
 
 @section("menu")
-    <x-ancla ref="#">PRODUCTOS</x-ancla>
+    <x-ancla ref="{{route('productos.index')}}">PRODUCTOS</x-ancla>
 @endsection
 
 @section("contenido")

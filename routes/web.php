@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 // Configuración Personalizada del Proyecto
-use App\Http\Controllers\ProductoController;
+// use App\Http\Controllers\ProductoController;
 
 
 /*
@@ -22,8 +22,6 @@ Route::get('/', function () {
     return view('tienda');
 })->name("principal");
 
-//
-Route::resource("productos", ProductoController::class);
 
 
 // Generamos las rutas a las páginas
@@ -37,6 +35,5 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
-
-
+//
+Route::resource('productos', \App\Http\Controllers\ProductoController::class);

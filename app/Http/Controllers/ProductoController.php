@@ -20,7 +20,7 @@ class ProductoController extends Controller
         return view("tienda.producto.listado", ['productos'=>$productos]);
 
         // $productos = Producto::all();
-        //& return view("tienda.producto.listado", ['productos'=>$productos]);
+        // return view("tienda.producto.listado", ['productos'=>$productos]);
 
     }
 
