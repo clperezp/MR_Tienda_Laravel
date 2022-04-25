@@ -5,40 +5,46 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset("css/app.css")}}">
-    <title>Tienda</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-<header>
-    <img class="max-h-fit max" src="{{asset('images/logo_empresa.png')}}" alt="Logo Empresa">
-    <h1 class="titulo">Venta de Tecnología</h1>
-    <div class="logueo">
-        @auth()
-            {{auth()->user()->name}}
-
+<header class="bg-header h-15v flex flex-row justify-between items-center p-8">
+    <img class="max-h-full" src="{{asset("images/logo_empresa.png")}}" alt="logo">
+    <h1 class="max-h-full text-6xl text-red-100">Tienda de componentes</h1>
+    <div>
+        @auth
+            <h2>{{auth()->user()->name}}</h2>
             <form action="{{route('logout')}}" method="post">
                 @csrf
-                <x-button>LOGOUT</x-button>
+                <x-button>Logout</x-button>
             </form>
         @endauth
-        @guest()
-            <x-ancla ref="{{route('login')}}">LOGIN</x-ancla>
-            <x-ancla ref="{{route('register')}}">REGISTRAR</x-ancla>
+        @guest
+            <form action="{{route('login')}}" method="post">
+                <x-input name="email" placeholder="email"></x-input>
+                <x-input name="password" placeholder="password"></x-input>
+                <br>
+                <x-button>Login</x-button>
+                                <x-ancla ref="{{route('register')}}">Registrarme</x-ancla>
+                @if ($errors->any())
+                    <h2>Login Incorrecto</h2>
+                @endif
+            </form>
         @endguest
     </div>
 </header>
-<nav>
-<div>
-    <a href="">Enlace 01</a>
-    <a href="">Enlace 02</a>
-    <a href="">Enlace 03</a>
-</div>
+<nav class="bg-nav h-10v">
+    @yield("menu")
 </nav>
-<main>
+<main class="bg-main h-65v">
     @yield("contenido")
 </main>
-<footer>
-    Pié de Página
+<footer class="h-10v bg-footer">
+    <h1>footer fijo @copyright contacto y podrímos aportar redes sociales</h1>
 </footer>
+
+
 </body>
 </html>
+

@@ -30,9 +30,6 @@ Route::resource("productos", ProductoController::class);
 Route::get('/layout', function () {
     return view('layout');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
